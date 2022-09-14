@@ -1,0 +1,93 @@
+<html>
+
+<head>
+	<title>mxDraw Example</title>
+	<link rel="stylesheet" href="css/wordpress.css" type="text/css" media="screen" />
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<style type="text/css" media="screen">
+		#page {
+			border: none;
+		}
+	</style>
+	<script src="js/script.js"></script>
+	<script type="text/javascript">
+		console.log('readPath');
+		var mxBasePath = './mxgraph-master/javascript/src';
+
+		var urlParams = (function (url) {
+			var result = new Object();
+			var params = window.location.search.slice(1).split('&');
+
+			for (var i = 0; i < params.length; i++) {
+				idx = params[i].indexOf('=');
+
+				if (idx > 0) {
+					result[params[i].substring(0, idx)] = params[i].substring(idx + 1);
+				}
+			}
+
+			return result;
+		})(window.location.href);
+
+		var mxLanguage = urlParams['lang'];
+	</script>
+	<script type="text/javascript" src="mxgraph-master/javascript/mxClient.js"></script>
+	<script type="text/javascript" src="js/app.js"></script>
+
+	<script type="text/javascript">
+		// Program starts here. The document.onLoad executes the
+		// createEditor function with a given configuration.
+		// In the config file, the mxEditor.onInit method is
+		// overridden to invoke this global function as the
+		// last step in the editor constructor.
+		
+	</script>
+</head>
+
+<body>
+	<div id="page">
+		<div id="header">
+			<div id="headerimg" style="overflow:hidden;">
+				<h1 id="title">mxDraw</h1>
+			</div>
+		</div>
+		<div id="mainActions" style="width:100%;padding-top:8px;padding-left:24px;padding-bottom:8px;">
+		</div>
+		<div id="secondaryActions" style="width:100%;padding-top:8px;padding-left:24px;padding-bottom:8px;">
+			<button class="ui-button secondary" onclick="onClick()">Generate elements</button>
+			<input type="file" id="image_input" accept="image/jpeg, image/png, image/jpeg">
+		</div>
+		<div id="selectActions" style="width:100%;padding-left:54px;padding-bottom:4px;">
+		</div>
+		<table border="0" width="1260px">
+			<tr>
+				<td id="toolbar" style="width:16px;padding-left:20px;" valign="top">
+					<!-- Toolbar Here -->
+				</td>
+				<td valign="top" style="border-width:1px;border-style:solid;border-color:black;">
+					<div id="graph" tabindex="-1"
+						style="position:relative;height:480px;width:1207.4px;overflow:hidden;cursor:default;">
+						<!-- Graph Here -->
+						<center id="splash" style="padding-top:230px;">
+							<img src="images/loading.gif">
+						</center>
+					</div>
+					<textarea id="xml" style="height:480px;width:684px;display:none;border-style:none;"></textarea>
+				</td>
+			</tr>
+		</table>
+		<span style="float:right;padding-right:36px;">
+			<input id="source" type="checkbox" />Source
+		</span>
+		<div id="zoomActions" style="width:100%;padding-left:54px;padding-top:4px;">
+		</div>
+		<div id="footer">
+			<p id="status">
+				<!-- Status Here -->Loading...
+			</p>
+			<br />
+		</div>
+	</div>
+</body>
+
+</html>
